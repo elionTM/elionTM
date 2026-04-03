@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { ArrowLeft, Plus, Trash2, Edit2, Layout, Briefcase, Image as ImageIcon, Users, CheckCircle, Clock, Play, XCircle, UserPlus, Phone, Globe, MapPin, Mail, Shield } from 'lucide-react';
+import { Rocket, ArrowLeft, Plus, Trash2, Edit2, Layout, Briefcase, Image as ImageIcon, Users, CheckCircle, Clock, Play, XCircle, UserPlus, Phone, Globe, MapPin, Mail, Shield } from 'lucide-react';
 import { io } from 'socket.io-client';
 import { API_URL } from '../config';
-import logo from '../elion-logo.png';
 
 const Management = () => {
   const { user } = useAuth();

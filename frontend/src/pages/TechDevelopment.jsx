@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Rocket, Code, Database, Cpu, ArrowLeft, ChevronRight } from 'lucide-react';
 import RequestModal from '../components/RequestModal';
-import logo from '../elion-logo.png';
 
 import { API_URL } from '../config';
 const TechDevelopment = () => {
@@ -58,12 +57,7 @@ const TechDevelopment = () => {
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigateTo('/')}>
-            <div className="w-8 h-8 flex items-center justify-center">
-              <img src={logo} alt="Elion Tech" className="w-full h-full object-contain" />
-            </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900">Tech & Development</span>
-          </div>
+          <div className="font-bold text-xl tracking-tight text-slate-900">Tech & Development</div>
         </div>
       </nav>
 
@@ -141,3 +135,4 @@ const TechDevelopment = () => {
 };
 
 export default TechDevelopment;
+

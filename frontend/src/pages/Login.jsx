@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { ArrowLeft } from 'lucide-react';
-import logo from '../elion-logo.png';
+import { Rocket, ArrowLeft } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -39,8 +38,8 @@ const Login = () => {
 
       <div className="w-full max-w-md bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
         <div className="flex flex-col items-center mb-8">
-          <div className="w-16 h-16 flex items-center justify-center mb-4">
-            <img src={logo} alt="Elion Tech" className="w-full h-full object-contain" />
+          <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-4">
+            <Rocket className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-slate-900">Welcome Back</h1>
           <p className="text-slate-500">Login to manage your projects</p>
