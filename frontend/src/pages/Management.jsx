@@ -26,10 +26,6 @@ const Management = () => {
   const [editingId, setEditingId] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // Shared Design System
-  const glassClass = "bg-white/60 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]";
-  const blueGradient = "bg-gradient-to-r from-[#0A66C2] to-[#1DA1F2]";
-
   const navigateTo = (path) => {
     window.history.pushState({}, '', path);
     window.dispatchEvent(new PopStateEvent('popstate'));
@@ -225,50 +221,37 @@ const Management = () => {
   if (user?.role !== 'admin') return null;
 
   return (
-    <div className="min-h-screen bg-[#F5F9FF] p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-          <div className="flex items-center gap-5">
-            <div 
-              onClick={() => navigateTo('/')} 
-              className="w-14 h-14 bg-white rounded-2xl shadow-sm border border-white p-2 cursor-pointer hover:scale-105 transition-transform duration-300"
-            >
-              <img src={logo} alt="Elion Tech" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => navigateTo('/dashboard')} className="p-1 hover:text-blue-600 transition-colors">
-                  <ArrowLeft className="w-5 h-5" />
-                </button>
-                <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Management</h1>
-              </div>
-              <p className="text-sm text-slate-500 font-medium ml-7">System Administrator Control Panel</p>
-            </div>
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <button onClick={() => navigateTo('/dashboard')} className="p-2 hover:bg-white rounded-full transition-colors">
+              <ArrowLeft className="w-6 h-6 text-slate-600" />
+            </button>
+            <h1 className="text-3xl font-bold text-slate-900">Admin Management</h1>
           </div>
-          
-          <div className={`flex gap-1 p-1 rounded-2xl ${glassClass}`}>
+          <div className="flex gap-2 bg-white p-1 rounded-xl shadow-sm border border-slate-200">
             <button 
               onClick={() => setActiveTab('services')}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === 'services' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${activeTab === 'services' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}`}
             >
               Services
             </button>
             <button 
               onClick={() => setActiveTab('portfolio')}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === 'portfolio' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${activeTab === 'portfolio' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}`}
             >
               Portfolio
             </button>
             <button 
               onClick={() => setActiveTab('projects')}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === 'projects' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${activeTab === 'projects' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}`}
             >
               Projects
             </button>
             <button 
               onClick={() => setActiveTab('users')}
-              className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${activeTab === 'users' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${activeTab === 'users' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-50'}`}
             >
               Users
             </button>
