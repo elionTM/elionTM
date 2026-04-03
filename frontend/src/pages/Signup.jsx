@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { ArrowLeft } from 'lucide-react';
-import logo from '../assets/elion-logo.png';
+import logo from '../elion-logo.png';
 
 const Signup = () => {
   const [name, setName] = useState('');
