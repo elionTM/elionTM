@@ -23,19 +23,32 @@ const app = express();
 const httpServer = createServer(app);
 
 // CORS configuration
-const frontendUrl = process.env.FRONTEND_URL || '*';
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'http://localhost:5173', // Vite default development port
+  'http://localhost:3000',
+].filter(Boolean);
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps) or if it matches our whitelist
+    // In non-production environments, we allow all origins for easier testing
+    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"]
+};
+
 const io = new Server(httpServer, {
-  cors: {
-    origin: frontendUrl,
-    methods: ["GET", "POST"],
-    credentials: true
-  }
+  cors: corsOptions
 });
 
-app.use(cors({
-  origin: frontendUrl,
-  credentials: true
-}));
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser());
 
