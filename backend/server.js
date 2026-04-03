@@ -23,32 +23,40 @@ const app = express();
 const httpServer = createServer(app);
 
 // CORS configuration
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'https://elion-tm.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:3000',
+].filter(Boolean).map(o => o.trim().toLowerCase().replace(/\/$/, ""));
+
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = [
-      process.env.FRONTEND_URL,
-      'https://elion-tm.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000',
-    ].filter(Boolean).map(o => o.trim().replace(/\/$/, ""));
-
     // Allow requests with no origin (like mobile apps or curl)
     if (!origin) return callback(null, true);
 
-    const normalizedOrigin = origin.trim().replace(/\/$/, "");
+    const normalizedOrigin = origin.trim().toLowerCase().replace(/\/$/, "");
 
     // Check if origin is allowed or if we're in development
     if (allowedOrigins.includes(normalizedOrigin) || process.env.NODE_ENV !== 'production') {
       callback(null, true);
     } else {
-      console.warn(`CORS Blocked: Origin "${origin}" not in allowed list: ${JSON.stringify(allowedOrigins)}`);
+      console.error(`[CORS Error] Blocked origin: ${origin}`);
+      console.log(`[CORS Debug] Normalized Origin: ${normalizedOrigin}`);
+      console.log(`[CORS Debug] Allowed Origins: ${JSON.stringify(allowedOrigins)}`);
       // Return false to deny access without throwing a server error
       callback(null, false);
     }
   },
   credentials: true,
   methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Cookie"],
+  allowedHeaders: [
+    "Content-Type", 
+    "Authorization", 
+    "X-Requested-With", 
+    "Accept", 
+    "Cookie"
+  ],
   exposedHeaders: ["Set-Cookie"],
   optionsSuccessStatus: 200
 };
