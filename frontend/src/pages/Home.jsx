@@ -13,9 +13,17 @@ const Home = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const heroRef = useRef(null);
+
+  // Parallax Logic
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   // Glassmorphism System Utility
-  const glassClass = "bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]";
+  const glassClass = "bg-white/60 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]";
   const blueGradient = "bg-gradient-to-r from-[#0A66C2] to-[#1DA1F2]";
 
   useEffect(() => {
@@ -116,8 +124,8 @@ const Home = () => {
     <div className="min-h-screen bg-[#F5F9FF] font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       {/* Background Orbs */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-200/30 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-purple-200/20 blur-[100px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-400/20 blur-[140px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-purple-400/15 blur-[120px] rounded-full" />
       </div>
 
       {/* Navigation */}
@@ -143,10 +151,10 @@ const Home = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="pt-32 pb-20 px-6">
+      <main ref={heroRef} className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* HERO SECTION */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -184,21 +192,18 @@ const Home = () => {
             </motion.div>
 
             <motion.div 
+              style={{ y: heroY }}
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
               className="relative"
             >
-              <motion.div 
-                animate={{ y: [0, -20, 0] }} 
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -inset-4 bg-gradient-to-tr from-blue-400/20 to-purple-400/20 rounded-[3rem] blur-3xl -z-10"
-              />
-              <div className="bg-white/40 backdrop-blur-2xl p-3 rounded-[2.5rem] shadow-2xl border border-white/50">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-[3rem] blur-3xl -z-10 animate-pulse" />
+              <div className="bg-white/50 backdrop-blur-3xl p-4 rounded-[3rem] shadow-2xl border border-white/60 ring-1 ring-black/5">
                 <img 
-                  src="https://picsum.photos/seed/tech/1200/800" 
-                  alt="Innovation" 
-                  className="rounded-[2rem] w-full object-cover aspect-[4/3] shadow-inner"
+                  src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200&h=800&auto=format&fit=crop" 
+                  alt="Tech Innovation Team" 
+                  className="rounded-[2.2rem] w-full object-cover aspect-[4/3] shadow-lg"
                   referrerPolicy="no-referrer"
                 />
               </div>
