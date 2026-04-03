@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'motion/react';
 import { Rocket, Shield, Briefcase, Layout, ArrowRight, ChevronRight, ExternalLink, X, ChevronLeft, Send, CheckCircle2, Zap, Globe, Cpu } from 'lucide-react';
 import RequestModal from '../components/RequestModal';
-import logo from '../elion-logo.png';
+import logo from '../assets/elion-logo.png';
 
 import { API_URL } from '../config';
 const Home = () => {

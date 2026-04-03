@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Shield, Scale, FileText, Landmark, ArrowLeft, ChevronRight } from 'lucide-react';
 import RequestModal from '../components/RequestModal';
-import logo from '../elion-logo.png';
+import logo from '../assets/elion-logo.png';
 
 import { API_URL } from '../config';
 const LegalBusiness = () => {

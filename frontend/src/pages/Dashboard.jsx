@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { API_URL } from '../config';
 import { LogOut, Layout, Briefcase, User, Save, Phone, Globe, MapPin } from 'lucide-react';
 import { io } from 'socket.io-client';
-import logo from '../elion-logo.png';
+import logo from '../assets/elion-logo.png';
 
 const Dashboard = () => {
   const [projects, setProjects] = useState([]);
