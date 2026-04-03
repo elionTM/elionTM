@@ -23,20 +23,24 @@ const app = express();
 const httpServer = createServer(app);
 
 // CORS configuration
-const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  'http://localhost:5173', // Vite default development port
-  'http://localhost:3000',
-].filter(Boolean);
+const getAllowedOrigins = () => {
+  const origins = [
+    process.env.FRONTEND_URL,
+    'http://localhost:5173',
+    'http://localhost:3000',
+  ].filter(Boolean);
+  // Add versions without trailing slashes just in case
+  return origins.map(o => o.replace(/\/$/, ""));
+};
 
 const corsOptions = {
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps) or if it matches our whitelist
-    // In non-production environments, we allow all origins for easier testing
-    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+    const allowed = getAllowedOrigins();
+    if (!origin || allowed.includes(origin.replace(/\/$/, "")) || process.env.NODE_ENV !== 'production') {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.warn(`CORS blocked request from origin: ${origin}`);
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
     }
   },
   credentials: true,
