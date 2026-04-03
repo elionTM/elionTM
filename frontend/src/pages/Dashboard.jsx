@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { API_URL } from '../config';
-import { LogOut, Layout, Briefcase, User, Save, Phone, Globe, MapPin } from 'lucide-react';
+import { LogOut, Layout, Rocket, Briefcase, User, Save, Phone, Globe, MapPin } from 'lucide-react';
 import { io } from 'socket.io-client';
-import logo from '../elion-logo.png';
 
 const Dashboard = () => {
   const [projects, setProjects] = useState([]);
@@ -40,9 +39,9 @@ const Dashboard = () => {
     const fetchProjects = async () => {
       try {
         const response = await fetch(`${API_URL}/api/projects`, { credentials: 'include' });
-        const data = await response.json();
-        if (Array.isArray(data)) {
-          setProjects(data);
+        if (response.ok) {
+          const data = await response.json();
+          setProjects(Array.isArray(data) ? data : []);
         } else {
           setProjects([]);
         }
@@ -102,8 +101,8 @@ const Dashboard = () => {
       {/* Sidebar/Nav */}
       <nav className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigateTo('/')}>
-          <div className="w-8 h-8 flex items-center justify-center">
-            <img src={logo} alt="Elion Tech" className="w-full h-full object-contain" />
+          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <Rocket className="w-5 h-5 text-white" />
           </div>
           <span className="font-bold text-xl tracking-tight text-slate-900">Elion Tech</span>
         </div>
@@ -150,18 +149,18 @@ const Dashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">Total Projects</h2>
-                <p className="text-3xl font-bold text-blue-600">{projects.length}</p>
+                <p className="text-3xl font-bold text-blue-600">{loading ? '...' : projects.length}</p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">Active Projects</h2>
                 <p className="text-3xl font-bold text-orange-600">
-                  {projects.filter(p => p.status === 'in-progress').length}
+                  {loading ? '...' : projects.filter(p => p.status === 'in-progress' || p.status === 'active').length}
                 </p>
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">Completed</h2>
                 <p className="text-3xl font-bold text-emerald-600">
-                  {projects.filter(p => p.status === 'completed').length}
+                  {loading ? '...' : projects.filter(p => p.status === 'completed' || p.status === 'done').length}
                 </p>
               </div>
             </div>

@@ -69,7 +69,7 @@ const Management = () => {
       setServices(Array.isArray(servicesData) ? servicesData : []);
       setPortfolio(Array.isArray(portfolioData) ? portfolioData : []);
       setProjects(Array.isArray(projectsData) ? projectsData : []);
-      setUsers(usersData.status === 'success' ? usersData.data.users : []);
+      setUsers(usersData?.status === 'success' && Array.isArray(usersData?.data?.users) ? usersData.data.users : []);
     } catch (error) {
       console.error('Error fetching management data:', error);
     } finally {

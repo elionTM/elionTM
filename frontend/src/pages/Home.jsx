@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'motion/react';
 import { Rocket, Shield, Briefcase, Layout, ArrowRight, ChevronRight, ExternalLink, X, ChevronLeft, Send, CheckCircle2, Zap, Globe, Cpu } from 'lucide-react';
 import RequestModal from '../components/RequestModal';
-import logo from '../elion-logo.png';
 
 import { API_URL } from '../config';
 const Home = () => {
@@ -129,8 +128,8 @@ const Home = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigateTo('/')}>
-            <div className="w-10 h-10 flex items-center justify-center">
-              <img src={logo} alt="Elion Tech" className="w-full h-full object-contain" />
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <Rocket className="w-5 h-5 text-white" />
             </div>
             <span className="font-bold text-xl tracking-tight text-slate-900">Elion Tech</span>
           </div>
@@ -532,8 +531,8 @@ const Home = () => {
       <footer className="mt-20 border-t border-slate-200 bg-white py-12">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <img src={logo} alt="Elion Tech" className="w-full h-full object-contain" />
+            <div className="w-6 h-6 bg-slate-900 rounded flex items-center justify-center">
+              <Rocket className="w-3 h-3 text-white" />
             </div>
             <span className="font-bold text-lg text-slate-900">Elion Tech</span>
           </div>
