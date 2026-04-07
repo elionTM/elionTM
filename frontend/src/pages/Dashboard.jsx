@@ -8,8 +8,7 @@ const Dashboard = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
-  const { user, logout, updateUser } = useAuth();
-  
+  const { user, loading: authLoading, logout, updateUser } = useAuth();
   const [profileData, setProfileData] = useState({
     name: user?.name || '',
     phoneNumber: user?.phoneNumber || '',
@@ -54,7 +53,10 @@ const Dashboard = () => {
     fetchProjects();
 
     // Socket.io for live updates
-    const socket = io(API_URL);
+    const socket = io(API_URL, {
+      transports: ['polling', 'websocket'],
+      withCredentials: true
+    });
     socket.on('projectCreated', (newProject) => {
       // Only add if it belongs to the user or user is admin
       if (user?.role === 'admin' || newProject.userId === user?._id) {
@@ -66,6 +68,13 @@ const Dashboard = () => {
       socket.disconnect();
     };
   }, [user]);
+
+  // STOP REDIRECTS ON REFRESH: Wait for auth check to finish
+  useEffect(() => {
+    if (!authLoading && !user) {
+      navigateTo('/login');
+    }
+  }, [user, authLoading]);
 
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
@@ -95,6 +104,8 @@ const Dashboard = () => {
       setTimeout(() => setUpdateMessage({ type: '', text: '' }), 3000);
     }
   };
+
+  if (authLoading) return null; // Or a loading spinner
 
   return (
     <div className="min-h-screen bg-gray-50">

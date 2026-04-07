@@ -5,7 +5,7 @@ import { io } from 'socket.io-client';
 import { API_URL } from '../config';
 
 const Management = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [activeTab, setActiveTab] = useState('services');
   const [services, setServices] = useState([]);
   const [portfolio, setPortfolio] = useState([]);
@@ -31,14 +31,20 @@ const Management = () => {
   };
 
   useEffect(() => {
-    if (user?.role !== 'admin') {
+    if (authLoading) return;
+
+    if (!user || user.role !== 'admin') {
       navigateTo('/dashboard');
       return;
     }
+
     fetchData();
 
     // Socket.io for live updates
-    const socket = io(API_URL);
+    const socket = io(API_URL, {
+      withCredentials: true,
+      transports: ['polling', 'websocket']
+    });
     socket.on('projectCreated', (newProject) => {
       setProjects(prev => [newProject, ...prev]);
     });
@@ -49,7 +55,7 @@ const Management = () => {
     return () => {
       socket.disconnect();
     };
-  }, [user]);
+  }, [user, authLoading]);
 
   const fetchData = async () => {
     setLoading(true);
