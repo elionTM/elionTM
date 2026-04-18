@@ -107,27 +107,29 @@ const Dashboard = () => {
 
   if (authLoading) return null; // Or a loading spinner
 
+  const glassClass = "bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]";
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100">
       {/* Sidebar/Nav */}
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between sticky top-0 z-50">
+      <nav className="bg-[#020617]/80 backdrop-blur-xl border-b border-white/5 px-8 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigateTo('/')}>
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
             <Rocket className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-xl tracking-tight text-slate-900">Elion Tech</span>
+          <span className="font-black text-xl tracking-tighter text-white uppercase">Elion Tech</span>
         </div>
         <div className="flex items-center gap-6">
-          <div className="flex items-center bg-gray-100 p-1 rounded-xl">
+          <div className="flex items-center bg-white/5 p-1 rounded-xl border border-white/5">
             <button 
               onClick={() => setActiveTab('overview')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'overview' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-4 py-2 rounded-lg text-[10px] font-black tracking-widest uppercase transition-all ${activeTab === 'overview' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500 hover:text-white'}`}
             >
               Overview
             </button>
             <button 
               onClick={() => setActiveTab('profile')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === 'profile' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-4 py-2 rounded-lg text-[10px] font-black tracking-widest uppercase transition-all ${activeTab === 'profile' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500 hover:text-white'}`}
             >
               Profile
             </button>
@@ -135,14 +137,14 @@ const Dashboard = () => {
           {user?.role === 'admin' && (
             <button 
               onClick={() => navigateTo('/management')}
-              className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+              className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-cyan-400 hover:text-cyan-300 transition-colors"
             >
               <Briefcase className="w-4 h-4" /> Management
             </button>
           )}
           <button 
             onClick={logout}
-            className="flex items-center gap-2 text-sm font-medium text-red-600 hover:text-red-700 transition-colors"
+            className="flex items-center gap-2 text-[10px] font-black tracking-widest uppercase text-red-400 hover:text-red-300 transition-colors"
           >
             <LogOut className="w-4 h-4" /> Logout
           </button>
@@ -153,44 +155,44 @@ const Dashboard = () => {
         {activeTab === 'overview' ? (
           <>
             <div className="flex items-center justify-between mb-8">
-              <h1 className="text-3xl font-bold text-gray-900">Dashboard Overview</h1>
-              <div className="text-sm text-gray-500">Welcome back, <span className="font-semibold text-gray-900">{user?.name}</span></div>
+              <h1 className="text-4xl font-black tracking-tighter uppercase">DASHBOARD</h1>
+              <div className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Welcome back, <span className="text-white">{user?.name}</span></div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">Total Projects</h2>
-                <p className="text-3xl font-bold text-blue-600">{loading ? '...' : projects.length}</p>
+              <div className={`${glassClass} p-8 rounded-[2rem]`}>
+                <h2 className="text-[10px] font-black tracking-widest text-slate-500 mb-2 uppercase">Total Projects</h2>
+                <p className="text-4xl font-black text-cyan-400">{loading ? '...' : projects.length}</p>
               </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">Active Projects</h2>
-                <p className="text-3xl font-bold text-orange-600">
+              <div className={`${glassClass} p-8 rounded-[2rem]`}>
+                <h2 className="text-[10px] font-black tracking-widest text-slate-500 mb-2 uppercase">Active Projects</h2>
+                <p className="text-4xl font-black text-orange-400">
                   {loading ? '...' : projects.filter(p => p.status === 'in-progress' || p.status === 'active').length}
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">Completed</h2>
-                <p className="text-3xl font-bold text-emerald-600">
+              <div className={`${glassClass} p-8 rounded-[2rem]`}>
+                <h2 className="text-[10px] font-black tracking-widest text-slate-500 mb-2 uppercase">Completed</h2>
+                <p className="text-4xl font-black text-emerald-400">
                   {loading ? '...' : projects.filter(p => p.status === 'completed' || p.status === 'done').length}
                 </p>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-              <div className="p-6 border-b border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900">Recent Projects</h2>
+            <div className={`${glassClass} rounded-[2rem] overflow-hidden`}>
+              <div className="p-8 border-b border-white/5">
+                <h2 className="text-xl font-black tracking-tighter uppercase">Recent Projects</h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
-                  <thead className="bg-gray-50 text-gray-500 text-sm uppercase">
+                  <thead className="bg-white/5 text-slate-500 text-[10px] font-black tracking-widest uppercase">
                     <tr>
-                      <th className="px-6 py-4 font-semibold">Client</th>
-                      <th className="px-6 py-4 font-semibold">Service</th>
-                      <th className="px-6 py-4 font-semibold">Status</th>
-                      <th className="px-6 py-4 font-semibold">Date</th>
+                      <th className="px-8 py-4 font-black">Client</th>
+                      <th className="px-8 py-4 font-black">Service</th>
+                      <th className="px-8 py-4 font-black">Status</th>
+                      <th className="px-8 py-4 font-black">Date</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100">
+                  <tbody className="divide-y divide-white/5">
                     {loading ? (
                       <tr>
                         <td colSpan="4" className="px-6 py-8 text-center text-gray-500">Loading projects...</td>
@@ -201,24 +203,24 @@ const Dashboard = () => {
                       </tr>
                     ) : (
                       projects.map((project) => (
-                        <tr key={project._id} className="hover:bg-gray-50 transition-colors">
-                          <td className="px-6 py-4">
-                            <div className="font-medium text-gray-900">{project.clientName}</div>
-                            <div className="text-sm text-gray-500">{project.clientEmail}</div>
+                        <tr key={project._id} className="hover:bg-white/5 transition-colors">
+                          <td className="px-8 py-6">
+                            <div className="font-bold text-white uppercase text-xs tracking-tight">{project.clientName}</div>
+                            <div className="text-[10px] text-slate-500 font-medium">{project.clientEmail}</div>
                           </td>
-                          <td className="px-6 py-4 text-gray-600">
+                          <td className="px-8 py-6 text-[10px] font-black tracking-widest uppercase text-slate-400">
                             {project.serviceId?.name || 'N/A'}
                           </td>
-                          <td className="px-6 py-4">
-                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                              project.status === 'completed' ? 'bg-emerald-100 text-emerald-700' :
-                              project.status === 'in-progress' ? 'bg-orange-100 text-orange-700' :
-                              'bg-blue-100 text-blue-700'
+                          <td className="px-8 py-6">
+                            <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${
+                              project.status === 'completed' ? 'bg-emerald-500/10 text-emerald-400' :
+                              project.status === 'in-progress' ? 'bg-orange-500/10 text-orange-400' :
+                              'bg-cyan-500/10 text-cyan-400'
                             }`}>
                               {project.status}
                             </span>
                           </td>
-                          <td className="px-6 py-4 text-gray-500 text-sm">
+                          <td className="px-8 py-6 text-slate-500 text-[10px] font-bold">
                             {new Date(project.createdAt).toLocaleDateString()}
                           </td>
                         </tr>

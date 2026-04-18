@@ -358,7 +358,7 @@ const Home = () => {
             ) : filteredPortfolio.length === 0 ? (
               <div className={`text-center py-32 ${glassClass} rounded-[3rem]`}>
                 <p className="text-slate-500 font-bold tracking-widest uppercase text-xs">No deployments found matching criteria.</p>
-              </p>
+              </div>
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {filteredPortfolio.map((item, index) => (

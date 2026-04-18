@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { Shield, Scale, FileText, Landmark, ArrowLeft, ChevronRight } from 'lucide-react';
+import { Shield, Scale, FileText, Landmark, ArrowLeft, ChevronRight, Rocket } from 'lucide-react';
 import RequestModal from '../components/RequestModal';
 
 import { API_URL } from '../config';
@@ -41,51 +41,62 @@ const LegalBusiness = () => {
     setIsModalOpen(true);
   };
 
+  const glassClass = "bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]";
+
   const getIcon = (name) => {
-    if (name.toLowerCase().includes('compliance')) return <Scale className="w-6 h-6 text-emerald-600" />;
-    if (name.toLowerCase().includes('contract')) return <FileText className="w-6 h-6 text-emerald-600" />;
-    return <Landmark className="w-6 h-6 text-emerald-600" />;
+    if (name.toLowerCase().includes('compliance')) return <Scale className="w-6 h-6 text-cyan-400" />;
+    if (name.toLowerCase().includes('contract')) return <FileText className="w-6 h-6 text-cyan-400" />;
+    return <Landmark className="w-6 h-6 text-cyan-400" />;
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] font-sans">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
+      {/* Background Orbs */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[160px] rounded-full" />
+      </div>
+
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/5 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <button 
             onClick={() => navigateTo('/')}
-            className="flex items-center gap-2 text-slate-600 hover:text-emerald-600 transition-colors font-medium"
+            className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors text-[10px] font-black tracking-widest uppercase"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </button>
-          <div className="font-bold text-xl tracking-tight text-slate-900">Legal & Business</div>
+          <div className="font-black text-xl tracking-tighter text-white uppercase">Legal & Business</div>
         </div>
       </nav>
 
-      <main className="pt-32 pb-20 px-6">
+      <main className="pt-40 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="space-y-6"
+              className="space-y-8"
             >
-              <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center">
-                <Shield className="w-6 h-6 text-emerald-600" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em]">
+                Regulatory Experts
               </div>
-              <h1 className="text-5xl font-bold text-slate-900 leading-tight">
-                Secure your <span className="text-emerald-600">foundation</span> with expert guidance.
+              <h1 className="text-6xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter uppercase">
+                Secure your <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">foundation</span>
               </h1>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                We provide the legal and business framework necessary for your company to operate safely and grow sustainably.
+              <p className="text-lg text-slate-400 leading-relaxed max-w-xl font-medium">
+                We provide the high-integrity framework necessary for global ventures to navigate complex markets with total confidence.
               </p>
             </motion.div>
-            <div className="relative">
-              <img 
-                src="https://picsum.photos/seed/legal/800/600" 
-                alt="Legal" 
-                className="rounded-3xl shadow-2xl w-full object-cover aspect-video"
-                referrerPolicy="no-referrer"
-              />
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-cyan-500/20 rounded-[3rem] blur-3xl opacity-50" />
+              <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+                <img 
+                  src="https://picsum.photos/seed/legal/1200/800" 
+                  alt="Legal Solutions" 
+                  className="w-full object-cover aspect-video transition-transform duration-1000 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+              </div>
             </div>
           </div>
 
@@ -101,22 +112,22 @@ const LegalBusiness = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  className={`p-10 ${glassClass} rounded-[2rem] hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between`}
                 >
                   <div>
-                    <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-6">
+                    <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-8">
                       {getIcon(service.name)}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{service.name}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                    <h3 className="text-xl font-black mb-4 tracking-tight uppercase">{service.name}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
                       {service.description}
                     </p>
                   </div>
                   <button 
                     onClick={() => handleRequest(service)}
-                    className="w-full py-3 bg-emerald-50 text-emerald-600 rounded-2xl font-bold text-sm hover:bg-emerald-600 hover:text-white transition-all flex items-center justify-center gap-2 group"
+                    className="w-full py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-white hover:text-slate-950 transition-all flex items-center justify-center gap-3 group"
                   >
-                    Request Service <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    DEPLOY PROTOCOL <Rocket className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   </button>
                 </motion.div>
               ))
@@ -135,4 +146,3 @@ const LegalBusiness = () => {
 };
 
 export default LegalBusiness;
-
