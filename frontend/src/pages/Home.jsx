@@ -15,8 +15,8 @@ const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Glassmorphism System Utility
-  const glassClass = "bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]";
-  const blueGradient = "bg-gradient-to-r from-[#0A66C2] to-[#1DA1F2]";
+  const glassClass = "bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]";
+  const blueGradient = "bg-gradient-to-r from-[#00D4FF] to-[#0A66C2]";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -97,118 +97,140 @@ const Home = () => {
   const openProject = (project) => {
     setSelectedProject(project);
     setActiveImageIndex(0);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeProject = () => {
     setSelectedProject(null);
-    document.body.style.overflow = 'unset';
   };
 
   const processSteps = [
-    { title: "Discover", desc: "We dive deep into your vision and market landscape.", icon: <Globe className="w-5 h-5" /> },
-    { title: "Design", desc: "Crafting intuitive UI/UX and brand identities.", icon: <Layout className="w-5 h-5" /> },
-    { title: "Develop", desc: "Building scalable solutions with modern tech stacks.", icon: <Cpu className="w-5 h-5" /> },
-    { title: "Deliver", desc: "Rigorous testing and seamless deployment.", icon: <CheckCircle2 className="w-5 h-5" /> }
+    { title: "DISCOVER", desc: "Deep-dive into vision & market landscape.", icon: <Globe className="w-5 h-5" /> },
+    { title: "DESIGN", desc: "Premium UI/UX & brand architecture.", icon: <Layout className="w-5 h-5" /> },
+    { title: "DEVELOP", desc: "High-performance scalable tech stacks.", icon: <Cpu className="w-5 h-5" /> },
+    { title: "DELIVER", desc: "Seamless deployment & market entry.", icon: <CheckCircle2 className="w-5 h-5" /> }
   ];
 
   return (
-    <div className="min-h-screen bg-[#F5F9FF] font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
+    <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
       {/* Background Orbs */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-200/30 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-purple-200/20 blur-[100px] rounded-full" />
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[160px] rounded-full" />
+        <div className="absolute bottom-[0%] right-[-10%] w-[50%] h-[50%] bg-cyan-900/10 blur-[140px] rounded-full" />
       </div>
 
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-        ? "py-4 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm" 
+        ? "py-4 bg-[#020617]/80 backdrop-blur-xl border-b border-white/5 shadow-lg" 
         : "py-6 bg-transparent"
       }`}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigateTo('/')}>
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
               <Rocket className="w-5 h-5 text-white" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-slate-900">Elion Tech</span>
+            <span className="font-bold text-xl tracking-tighter text-white uppercase">Elion Tech</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => navigateTo('/branding-marketing')} className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Branding</button>
-            <button onClick={() => navigateTo('/tech-development')} className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Development</button>
-            <button onClick={() => navigateTo('/legal-business')} className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Legal</button>
-            <button onClick={() => navigateTo('/dashboard')} className="px-4 py-2 bg-slate-900 text-white rounded-full text-sm font-medium hover:bg-slate-800 transition-all shadow-sm">Dashboard</button>
+            <button onClick={() => navigateTo('/branding-marketing')} className="text-[10px] tracking-[0.2em] font-bold text-slate-400 hover:text-cyan-400 transition-colors">BRANDING</button>
+            <button onClick={() => navigateTo('/tech-development')} className="text-[10px] tracking-[0.2em] font-bold text-slate-400 hover:text-cyan-400 transition-colors">DEVELOPMENT</button>
+            <button onClick={() => navigateTo('/legal-business')} className="text-[10px] tracking-[0.2em] font-bold text-slate-400 hover:text-cyan-400 transition-colors">LEGAL</button>
+            <button onClick={() => navigateTo('/dashboard')} className="px-6 py-2 bg-white text-slate-950 rounded-full text-[10px] tracking-widest font-black hover:bg-cyan-400 transition-all shadow-xl">DASHBOARD</button>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="pt-32 pb-20 px-6">
+      <main className="pt-40 pb-20 px-6 relative">
+        {/* BACKGROUND TYPOGRAPHY */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center select-none pointer-events-none -z-10 opacity-[0.03]">
+          <h1 className="text-[25vw] font-black leading-none tracking-tighter">INNOVATE</h1>
+        </div>
+
         <div className="max-w-7xl mx-auto">
-          {/* HERO SECTION */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="flex flex-col items-center text-center space-y-12">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-8"
+              className="space-y-6 max-w-4xl"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-md border border-white/50 text-blue-700 text-xs font-bold uppercase tracking-widest shadow-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] shadow-2xl">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
-                Future-Ready Innovation
+                Next-Gen Agency
               </div>
-              <h1 className="text-6xl md:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight">
-                Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Elion Tech</span> & Management
+              <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.9] tracking-tighter uppercase">
+                Build the <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">Future</span>
               </h1>
-              <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
-                Innovative solutions for your business growth. We combine technical precision with strategic human-centered design.
+              <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto font-medium">
+                Elion Tech combines high-performance engineering with disruptive creative strategy to scale global ventures.
               </p>
-              <div className="flex flex-wrap gap-4">
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              className="relative w-full max-w-5xl"
+            >
+              {/* Visual Anchor Image */}
+              <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,212,255,0.15)] group">
+                <img 
+                  src="https://picsum.photos/seed/eliontech/1600/900" 
+                  alt="High-Tech Solution" 
+                  className="w-full object-cover aspect-[21/9] transition-transform duration-1000 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+              </div>
+
+              {/* Floating Stats Cards */}
+              <motion.div 
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="absolute -left-6 top-1/4 z-20 p-6 rounded-3xl bg-white text-slate-950 shadow-2xl hidden lg:block"
+              >
+                <div className="text-4xl font-black tracking-tighter">472+</div>
+                <div className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Projects Delivered</div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ x: 50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1 }}
+                className={`absolute -right-6 bottom-1/4 z-20 p-6 rounded-3xl ${glassClass} hidden lg:block`}
+              >
+                <div className="text-4xl font-black tracking-tighter text-cyan-400">99%</div>
+                <div className="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Client Retention</div>
+              </motion.div>
+
+              {/* CTA Overlay */}
+              <div className="flex flex-wrap justify-center gap-6 mt-12 relative z-20">
                 <button 
                   onClick={() => navigateTo('/dashboard')}
-                  className={`px-8 py-4 ${blueGradient} text-white rounded-2xl font-bold hover:scale-105 transition-all shadow-xl shadow-blue-200 flex items-center gap-2 group`}
+                  className={`px-10 py-5 ${blueGradient} text-white rounded-2xl font-black text-xs tracking-widest uppercase hover:scale-105 transition-all shadow-2xl shadow-cyan-500/20 flex items-center gap-3 group`}
                 >
                   Get Started
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 bg-white/50 backdrop-blur-md text-slate-900 border border-white/50 rounded-2xl font-bold hover:bg-white transition-all shadow-sm"
+                  className="px-10 py-5 bg-white/5 backdrop-blur-md text-white border border-white/10 rounded-2xl font-black text-xs tracking-widest uppercase hover:bg-white hover:text-slate-950 transition-all shadow-sm"
                 >
                   View Services
                 </button>
               </div>
             </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="relative"
-            >
-              <motion.div 
-                animate={{ y: [0, -20, 0] }} 
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -inset-4 bg-gradient-to-tr from-blue-400/20 to-purple-400/20 rounded-[3rem] blur-3xl -z-10"
-              />
-              <div className="bg-white/40 backdrop-blur-2xl p-3 rounded-[2.5rem] shadow-2xl border border-white/50">
-                <img 
-                  src="https://picsum.photos/seed/tech/1200/800" 
-                  alt="Innovation" 
-                  className="rounded-[2rem] w-full object-cover aspect-[4/3] shadow-inner"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            </motion.div>
           </div>
 
           {/* TRUST STRIP (Marquee) */}
-          <div className="mt-32 py-10 overflow-hidden relative">
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#F5F9FF] to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#F5F9FF] to-transparent z-10" />
+          <div className="mt-20 py-10 overflow-hidden relative border-y border-white/5">
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-10" />
             <motion.div 
               animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -216,18 +238,11 @@ const Home = () => {
             >
               {[...Array(2)].map((_, i) => (
                 <div key={i} className="flex gap-16 items-center">
-                  <span className="text-slate-400 font-bold text-lg uppercase tracking-widest flex items-center gap-4">
-                    <Zap className="w-5 h-5 text-blue-500" /> Trusted by Startups
-                  </span>
-                  <span className="text-slate-400 font-bold text-lg uppercase tracking-widest flex items-center gap-4">
-                    <Zap className="w-5 h-5 text-blue-500" /> Global Founders
-                  </span>
-                  <span className="text-slate-400 font-bold text-lg uppercase tracking-widest flex items-center gap-4">
-                    <Zap className="w-5 h-5 text-blue-500" /> Premium Design
-                  </span>
-                  <span className="text-slate-400 font-bold text-lg uppercase tracking-widest flex items-center gap-4">
-                    <Zap className="w-5 h-5 text-blue-500" /> High Performance
-                  </span>
+                  {["Global Founders", "Series A Startups", "Web3 Innovators", "Enterprise Leaders"].map(text => (
+                    <span key={text} className="text-slate-500 font-black text-xs uppercase tracking-[0.4em] flex items-center gap-4 opacity-50">
+                      <Zap className="w-4 h-4 text-cyan-400" /> {text}
+                    </span>
+                  ))}
                 </div>
               ))}
             </motion.div>
@@ -236,9 +251,9 @@ const Home = () => {
           {/* SERVICES SECTION */}
           <div className="mt-40 space-y-16">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">Our Expertise</h2>
-              <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-                Specialized services tailored to help your business scale in the digital era.
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter uppercase">CORE EXPERTISE</h2>
+              <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">
+                Engineered for scalability. Designed for impact.
               </p>
             </div>
 
@@ -250,17 +265,17 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => navigateTo(category.path)}
-                  className={`group p-8 ${glassClass} rounded-[2.5rem] hover:-translate-y-2 transition-all duration-500 cursor-pointer relative overflow-hidden`}
+                  className={`group p-10 ${glassClass} rounded-[2rem] hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 cursor-pointer relative overflow-hidden`}
                 >
-                  <div className={`w-12 h-12 rounded-2xl ${category.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                  <div className={`w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all`}>
                     {category.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{category.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                  <h3 className="text-xl font-black mb-4 tracking-tight uppercase">{category.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
                     {category.description}
                   </p>
-                  <div className="flex items-center text-blue-600 text-sm font-bold group-hover:gap-2 transition-all">
-                    Learn More <ChevronRight className="w-4 h-4" />
+                  <div className="flex items-center text-cyan-400 text-[10px] font-black tracking-widest uppercase group-hover:gap-3 transition-all">
+                    EXPLORE <ChevronRight className="w-4 h-4" />
                   </div>
                 </motion.div>
               ))}
@@ -268,25 +283,25 @@ const Home = () => {
           </div>
 
           {/* PROCESS SECTION */}
-          <div className="mt-48 space-y-16 py-20 bg-blue-600/[0.03] rounded-[4rem] px-8 border border-blue-100/50">
+          <div className="mt-48 space-y-24 py-32 bg-white/5 rounded-[4rem] px-8 border border-white/5">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl font-bold text-slate-900">How We Work</h2>
-              <p className="text-slate-500">A streamlined process from concept to reality.</p>
+              <h2 className="text-5xl font-black tracking-tighter uppercase">THE PROTOCOL</h2>
+              <p className="text-slate-500 font-medium">Precision engineering from concept to scale.</p>
             </div>
             <div className="grid md:grid-cols-4 gap-8 relative">
               {/* Progress Line */}
-              <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-blue-100 -z-10" />
+              <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-white/10 -z-10" />
               {processSteps.map((step, idx) => (
                 <motion.div 
                   whileHover={{ y: -5 }}
                   key={idx} 
                   className="text-center space-y-4"
                 >
-                  <div className={`w-16 h-16 rounded-2xl ${blueGradient} text-white flex items-center justify-center mx-auto shadow-lg shadow-blue-200 relative`}>
+                  <div className={`w-16 h-16 rounded-2xl ${blueGradient} text-white flex items-center justify-center mx-auto shadow-2xl shadow-cyan-500/30 relative`}>
                     {step.icon}
                   </div>
-                  <h4 className="font-bold text-xl text-slate-900">{step.title}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">{step.desc}</p>
+                  <h4 className="font-black text-xs tracking-widest text-white uppercase">{step.title}</h4>
+                  <p className="text-sm text-slate-500 leading-relaxed font-medium">{step.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -294,58 +309,58 @@ const Home = () => {
 
           {/* Portfolio Section */}
           <div id="portfolio" className="mt-48 space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold text-slate-900">Featured Work</h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
-                A showcase of our best projects across branding, development, and business strategy.
-              </p>
-            </div>
-
-            {/* Filters */}
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <div className="flex bg-white p-1 rounded-2xl shadow-sm border border-slate-200">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+              <div className="space-y-4">
+                <h2 className="text-5xl font-black tracking-tighter uppercase">SELECTED WORKS</h2>
+                <p className="text-slate-500 max-w-xl text-lg font-medium">
+                  A portfolio of disruptive ventures across tech and creative sectors.
+                </p>
+              </div>
+              
+              {/* Filters */}
+              <div className="flex bg-white/5 p-1 rounded-2xl border border-white/5">
                 {['All', 'Legal & Business', 'Branding & Marketing', 'Tech & Development'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => { setFilterCategory(cat); setFilterService('All'); }}
-                    className={`px-4 py-2 rounded-xl text-sm font-bold transition-all ${filterCategory === cat ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                    className={`px-6 py-2 rounded-xl text-[10px] font-black tracking-widest uppercase transition-all ${filterCategory === cat ? 'bg-white text-slate-950 shadow-xl' : 'text-slate-500 hover:text-white'}`}
                   >
-                    {cat === 'All' ? 'All Categories' : cat.split(' & ')[0]}
+                    {cat === 'All' ? 'ALL' : cat.split(' & ')[0]}
                   </button>
                 ))}
               </div>
-
-              {uniqueServices.length > 0 && (
-                <div className="flex bg-white p-1 rounded-2xl shadow-sm border border-slate-200 overflow-x-auto max-w-full">
-                  <button
-                    onClick={() => setFilterService('All')}
-                    className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${filterService === 'All' ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
-                  >
-                    All Services
-                  </button>
-                  {uniqueServices.map(service => (
-                    <button
-                      key={service}
-                      onClick={() => setFilterService(service)}
-                      className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${filterService === service ? 'bg-blue-600 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
-                    >
-                      {service}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
+
+            {uniqueServices.length > 0 && (
+              <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                <button
+                  onClick={() => setFilterService('All')}
+                  className={`px-6 py-2 rounded-full text-[10px] font-black tracking-widest border transition-all whitespace-nowrap ${filterService === 'All' ? 'bg-cyan-500 border-cyan-500 text-white' : 'border-white/10 text-slate-500 hover:border-white'}`}
+                >
+                  ALL SERVICES
+                </button>
+                {uniqueServices.map(service => (
+                  <button
+                    key={service}
+                    onClick={() => setFilterService(service)}
+                    className={`px-6 py-2 rounded-full text-[10px] font-black tracking-widest border transition-all whitespace-nowrap ${filterService === service ? 'bg-cyan-500 border-cyan-500 text-white' : 'border-white/10 text-slate-500 hover:border-white'}`}
+                  >
+                    {service.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {loadingPortfolio ? (
               <div className="flex justify-center py-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
               </div>
             ) : filteredPortfolio.length === 0 ? (
-              <div className="text-center py-20 bg-white rounded-3xl border border-slate-100">
-                <p className="text-slate-400">No projects found matching your criteria. Try adjusting your filters!</p>
-              </div>
+              <div className={`text-center py-32 ${glassClass} rounded-[3rem]`}>
+                <p className="text-slate-500 font-bold tracking-widest uppercase text-xs">No deployments found matching criteria.</p>
+              </p>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {filteredPortfolio.map((item, index) => (
                   <motion.div
                     key={item._id}
@@ -355,39 +370,30 @@ const Home = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     onClick={() => openProject(item)}
-                    className="group bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden cursor-pointer"
+                    className="group rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-cyan-500/50 transition-all overflow-hidden cursor-pointer"
                   >
-                    <div className="relative h-64 overflow-hidden">
+                    <div className="relative h-80 overflow-hidden">
                       <img 
                         src={item.images?.[0] || 'https://picsum.photos/seed/placeholder/800/600'} 
                         alt={item.title} 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         referrerPolicy="no-referrer"
                       />
-                      {item.images?.length > 1 && (
-                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">
-                          {item.images.length} Photos
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                        <div className="bg-white text-slate-900 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2">
-                          View Details <ChevronRight className="w-4 h-4" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/20 to-transparent opacity-60 transition-opacity group-hover:opacity-40" />
+                      <div className="absolute inset-0 flex items-end p-10 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all">
+                        <div className="bg-white text-slate-950 px-6 py-3 rounded-2xl text-[10px] font-black tracking-widest uppercase flex items-center gap-3">
+                          VIEW PROJECT <ChevronRight className="w-4 h-4" />
                         </div>
                       </div>
                     </div>
-                    <div className="p-8">
+                    <div className="p-10">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600">
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400">
                           {item.category}
                         </span>
-                        {item.serviceId && (
-                          <span className="text-[10px] font-medium text-slate-400">
-                            {item.serviceId.name}
-                          </span>
-                        )}
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                      <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">
+                      <h3 className="text-3xl font-black text-white mb-4 tracking-tight uppercase">{item.title}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed line-clamp-2 font-medium">
                         {item.description}
                       </p>
                     </div>
@@ -408,11 +414,11 @@ const Home = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeProject}
-              className="absolute inset-0 bg-slate-900/90 backdrop-blur-md"
+              className="absolute inset-0 bg-slate-950/95 backdrop-blur-xl"
             />
             <motion.div 
               layoutId={selectedProject._id}
-              className="relative w-full max-w-5xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+              className="relative w-full max-w-6xl bg-[#020617] rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
             >
               <button 
                 onClick={closeProject}
@@ -422,7 +428,7 @@ const Home = () => {
               </button>
 
               {/* Image Gallery */}
-              <div className="w-full md:w-3/5 bg-slate-100 relative group">
+              <div className="w-full md:w-3/5 bg-slate-900 relative group">
                 <img 
                   src={selectedProject.images[activeImageIndex]} 
                   alt={selectedProject.title}
@@ -435,7 +441,7 @@ const Home = () => {
                     <div className="absolute inset-y-0 left-4 flex items-center">
                       <button 
                         onClick={(e) => { e.stopPropagation(); setActiveImageIndex(prev => (prev === 0 ? selectedProject.images.length - 1 : prev - 1)); }}
-                        className="p-2 bg-white/90 backdrop-blur-sm rounded-full text-slate-900 hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="p-3 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-cyan-500 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
@@ -443,7 +449,7 @@ const Home = () => {
                     <div className="absolute inset-y-0 right-4 flex items-center">
                       <button 
                         onClick={(e) => { e.stopPropagation(); setActiveImageIndex(prev => (prev === selectedProject.images.length - 1 ? 0 : prev + 1)); }}
-                        className="p-2 bg-white/90 backdrop-blur-sm rounded-full text-slate-900 hover:bg-white shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="p-3 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-white hover:bg-cyan-500 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>
@@ -453,7 +459,7 @@ const Home = () => {
                         <button 
                           key={idx}
                           onClick={(e) => { e.stopPropagation(); setActiveImageIndex(idx); }}
-                          className={`w-2 h-2 rounded-full transition-all ${activeImageIndex === idx ? 'bg-white w-6' : 'bg-white/50'}`}
+                          className={`w-2 h-2 rounded-full transition-all ${activeImageIndex === idx ? 'bg-cyan-400 w-8' : 'bg-white/30'}`}
                         />
                       ))}
                     </div>
@@ -465,52 +471,50 @@ const Home = () => {
               <div className="w-full md:w-2/5 p-8 md:p-12 overflow-y-auto">
                 <div className="space-y-6">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block">
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400 mb-4 block">
                       {selectedProject.category}
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter">
                       {selectedProject.title}
                     </h2>
                   </div>
 
                   {selectedProject.serviceId && (
-                    <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                      <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
+                    <div className="flex items-center gap-4 p-6 bg-white/5 rounded-3xl border border-white/10">
+                      <div className="w-12 h-12 bg-cyan-500/20 rounded-2xl flex items-center justify-center text-cyan-400">
                         <Rocket className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Service Provided</p>
-                        <p className="text-sm font-bold text-slate-900">{selectedProject.serviceId.name}</p>
+                        <p className="text-[10px] font-black text-cyan-400 uppercase tracking-widest">DEPLOYED TECH</p>
+                        <p className="text-md font-bold text-white uppercase">{selectedProject.serviceId.name}</p>
                       </div>
                     </div>
                   )}
 
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Project Overview</h4>
-                    <p className="text-slate-600 leading-relaxed">
+                  <div className="space-y-6">
+                    <h4 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">ANALYSIS & SCOPE</h4>
+                    <p className="text-slate-400 leading-relaxed font-medium">
                       {selectedProject.description}
                     </p>
                   </div>
 
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-4 pt-8">
                     {selectedProject.link && (
                       <a 
                         href={selectedProject.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 group"
+                        className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-cyan-400 transition-all shadow-2xl group"
                       >
-                        Visit Live Project
+                        LAUNCH PROJECT
                         <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                       </a>
                     )}
                     {selectedProject.serviceId && (
                       <button 
                         onClick={() => setIsRequestModalOpen(true)}
-                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 group"
+                        className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-cyan-500 text-white rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-cyan-600 transition-all shadow-2xl shadow-cyan-500/20 group"
                       >
-                        Request Similar Project
-                        <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        SCALE SIMILAR
+                        <Rocket className="w-5 h-5 group-hover:scale-110 transition-transform" />
                       </button>
                     )}
                   </div>
@@ -528,21 +532,21 @@ const Home = () => {
       />
 
       {/* Footer */}
-      <footer className="mt-20 border-t border-slate-200 bg-white py-12">
+      <footer className="mt-40 border-t border-white/5 bg-[#020617] py-20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-slate-900 rounded flex items-center justify-center">
+            <div className="w-6 h-6 bg-cyan-500 rounded flex items-center justify-center">
               <Rocket className="w-3 h-3 text-white" />
             </div>
-            <span className="font-bold text-lg text-slate-900">Elion Tech</span>
+            <span className="font-black text-lg text-white uppercase tracking-tighter">Elion Tech</span>
           </div>
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-500 text-[10px] font-bold tracking-[0.2em] uppercase">
             © 2026 Elion Tech. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-slate-400 hover:text-slate-600 transition-colors">Twitter</a>
-            <a href="#" className="text-slate-400 hover:text-slate-600 transition-colors">LinkedIn</a>
-            <a href="#" className="text-slate-400 hover:text-slate-600 transition-colors">GitHub</a>
+            <a href="#" className="text-slate-500 hover:text-cyan-400 transition-colors text-[10px] font-black tracking-widest">TWITTER</a>
+            <a href="#" className="text-slate-500 hover:text-cyan-400 transition-colors text-[10px] font-black tracking-widest">LINKEDIN</a>
+            <a href="#" className="text-slate-500 hover:text-cyan-400 transition-colors text-[10px] font-black tracking-widest">GITHUB</a>
           </div>
         </div>
       </footer>
