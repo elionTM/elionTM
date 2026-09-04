@@ -26,8 +26,7 @@ const httpServer = createServer(app);
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   'https://elion-tm.vercel.app',
-  'http://localhost:5173',
-  'http://localhost:3000',
+ 
 ].filter(Boolean).map(o => o.trim().toLowerCase().replace(/\/$/, ""));
 
 const corsOptions = {
