@@ -111,7 +111,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
+    <div className="public-depth min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
       {/* Background Orbs */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[160px] rounded-full" />
@@ -266,7 +266,7 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => navigateTo(category.path)}
-                  className={`group p-10 ${glassClass} rounded-[2rem] hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 cursor-pointer relative overflow-hidden`}
+                  className={`group depth-card glass-panel glass-panel-hover p-10 rounded-[2rem] cursor-pointer relative overflow-hidden`}
                 >
                   <div className={`w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all`}>
                     {category.icon}
@@ -385,7 +385,7 @@ const Home = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     onClick={() => openProject(item)}
-                    className="group rounded-[2.5rem] bg-white/5 border border-white/5 hover:border-cyan-500/50 transition-all overflow-hidden cursor-pointer"
+                    className="group depth-card glass-panel glass-panel-hover rounded-[2.5rem] overflow-hidden cursor-pointer"
                   >
                     <div className="relative h-80 overflow-hidden">
                       <img 

@@ -226,7 +226,7 @@ const Management = () => {
   if (user?.role !== 'admin') return null;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="workspace-shell min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">

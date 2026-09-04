@@ -110,7 +110,7 @@ const Dashboard = () => {
   const glassClass = "bg-white/5 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]";
 
   return (
-    <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100">
+    <div className="workspace-shell min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100">
       {/* Sidebar/Nav */}
       <nav className="bg-[#020617]/80 backdrop-blur-xl border-b border-white/5 px-8 py-4 flex items-center justify-between sticky top-0 z-50 shadow-lg">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigateTo('/')}>

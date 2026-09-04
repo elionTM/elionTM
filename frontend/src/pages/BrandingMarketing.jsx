@@ -48,7 +48,7 @@ const BrandingMarketing = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#071126] font-sans text-white">
+    <div className="public-depth min-h-screen overflow-x-hidden bg-[#071126] font-sans text-white">
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#071126]/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <button 
@@ -101,7 +101,7 @@ const BrandingMarketing = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-all flex flex-col justify-between"
+                  className="glass-panel glass-panel-hover p-8 rounded-3xl flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 bg-cyan-500/15 rounded-xl flex items-center justify-center mb-6">

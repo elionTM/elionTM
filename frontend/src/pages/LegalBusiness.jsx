@@ -50,7 +50,7 @@ const LegalBusiness = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
+    <div className="public-depth min-h-screen bg-[#020617] text-white font-sans selection:bg-cyan-500/30 selection:text-cyan-100 overflow-x-hidden">
       {/* Background Orbs */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[160px] rounded-full" />
@@ -112,7 +112,7 @@ const LegalBusiness = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`p-10 ${glassClass} rounded-[2rem] hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between`}
+                  className={`depth-card glass-panel glass-panel-hover p-10 rounded-[2rem] flex flex-col justify-between`}
                 >
                   <div>
                     <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-8">

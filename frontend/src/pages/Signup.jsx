@@ -29,7 +29,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#071126] flex items-center justify-center p-6">
+    <div className="auth-shell min-h-screen bg-[#071126] flex items-center justify-center p-6">
       <button 
         onClick={() => navigateTo('/')}
         className="absolute top-8 left-8 flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors font-medium"

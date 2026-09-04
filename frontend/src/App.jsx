@@ -69,7 +69,7 @@ const AppContent = () => {
     }
   };
 
-  return renderPage();
+  return <div className="app-page min-h-screen">{renderPage()}</div>;
 };
 
 export default function App() {
