@@ -5,6 +5,7 @@ import BrandingMarketing from './pages/BrandingMarketing';
 import TechDevelopment from './pages/TechDevelopment';
 import LegalBusiness from './pages/LegalBusiness';
 import Academy from './pages/Academy';
+import AcademyCourse from './pages/AcademyCourse';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Management from './pages/Management';
@@ -40,6 +41,10 @@ const AppContent = () => {
     if (path === '/management' && user?.role !== 'admin') {
       navigateTo('/dashboard');
       return <Dashboard />;
+    }
+
+    if (path.startsWith('/academy/course/')) {
+      return <AcademyCourse slug={path.replace('/academy/course/', '')} />;
     }
 
     switch (path) {
