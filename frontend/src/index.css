@@ -338,44 +338,63 @@
   .academy-page [class*="bg-[#e9e4d9]"],
   .academy-page [class*="bg-[#dfe9d4]"],
   .academy-page [class*="bg-[#f4d6bc]"] {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)) !important;
-    border-color: var(--app-line) !important;
-    color: var(--app-ink) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+  }
+
+  .academy-page > .fixed [class*="bg-[#dfe9d4]"] {
+    background: rgba(10, 102, 194, 0.18) !important;
+  }
+
+  .academy-page > .fixed [class*="bg-[#f4d6bc]"] {
+    background: rgba(0, 212, 255, 0.12) !important;
+  }
+
+  .academy-page section[class*="bg-[#183b32]"] {
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.28), rgba(2, 6, 23, 0.82)) !important;
+    color: #ffffff !important;
+  }
+
+  .academy-page section[class*="bg-[#d16f43]"] {
+    background: linear-gradient(110deg, #00d4ff, #0a66c2) !important;
+    color: #020617 !important;
   }
 
   .academy-page [class*="text-[#183b32]"],
   .academy-page [class*="text-[#183b32]/"],
   .academy-page [class*="text-[#183b32]"] {
-    color: var(--app-ink) !important;
+    color: #ffffff !important;
   }
 
   .academy-page [class*="text-[#d16f43]"],
   .academy-page [class*="text-[#f4c49e]"] {
-    color: var(--app-coral) !important;
+    color: #00d4ff !important;
   }
 
   .academy-page [class*="border-[#183b32]"],
   .academy-page [class*="border-[#d16f43]"] {
-    border-color: var(--app-line) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
   }
 
   .academy-page [class*="bg-[#183b32]"] {
-    background: rgba(142, 232, 210, 0.16) !important;
-    color: var(--app-ink) !important;
+    background: #00d4ff !important;
+    color: #020617 !important;
   }
 
   .academy-page [class*="bg-[#d16f43]"] {
-    background: var(--app-coral) !important;
-    color: #061413 !important;
+    background: #00d4ff !important;
+    color: #020617 !important;
   }
 
   .academy-page [class*="bg-[#183b32]"].hover\:bg-\[\#d16f43\]:hover,
   .academy-page [class*="bg-[#d16f43]"].hover\:bg-\[\#183b32\]:hover {
-    background: var(--app-cyan) !important;
+    background: #0a66c2 !important;
+    color: #ffffff !important;
   }
 
   .academy-page .academy-display {
-    color: var(--app-ink) !important;
+    color: #ffffff !important;
   }
 }
 
