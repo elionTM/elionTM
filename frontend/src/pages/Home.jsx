@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'motion/react';
-import { Rocket, Shield, Briefcase, Layout, ArrowRight, ChevronRight, ExternalLink, X, ChevronLeft, Send, CheckCircle2, Zap, Globe, Cpu } from 'lucide-react';
+import { Rocket, Shield, Briefcase, Layout, ArrowRight, ChevronRight, ExternalLink, X, ChevronLeft, Send, CheckCircle2, Zap, Globe, Cpu, GraduationCap } from 'lucide-react';
 import RequestModal from '../components/RequestModal';
 
 import { API_URL } from '../config';
@@ -132,6 +132,7 @@ const Home = () => {
             <span className="font-bold text-xl tracking-tighter text-white uppercase">Elion Tech</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
+            <button onClick={() => navigateTo('/academy')} className="text-[10px] tracking-[0.2em] font-bold text-cyan-400 hover:text-white transition-colors">ACADEMY</button>
             <button onClick={() => navigateTo('/branding-marketing')} className="text-[10px] tracking-[0.2em] font-bold text-slate-400 hover:text-cyan-400 transition-colors">BRANDING</button>
             <button onClick={() => navigateTo('/tech-development')} className="text-[10px] tracking-[0.2em] font-bold text-slate-400 hover:text-cyan-400 transition-colors">DEVELOPMENT</button>
             <button onClick={() => navigateTo('/legal-business')} className="text-[10px] tracking-[0.2em] font-bold text-slate-400 hover:text-cyan-400 transition-colors">LEGAL</button>
@@ -279,6 +280,20 @@ const Home = () => {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+
+          {/* ACADEMY BRIDGE */}
+          <div className="mt-40 relative overflow-hidden rounded-[3rem] border border-cyan-400/20 bg-gradient-to-br from-cyan-500/15 via-white/5 to-blue-900/20 p-8 md:p-16">
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-cyan-300/10" />
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-cyan-300/10" />
+            <div className="relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-cyan-400"><GraduationCap className="h-6 w-6" /><span className="text-[10px] font-black uppercase tracking-[0.3em]">Elion Academy</span></div>
+                <h2 className="max-w-3xl text-5xl font-black uppercase leading-[0.92] tracking-tighter md:text-7xl">We build businesses, brands, technology <span className="text-cyan-400">and people.</span></h2>
+                <p className="max-w-2xl text-lg font-medium leading-relaxed text-slate-300">Academy is the people-development arm of the Elion ecosystem: practical learning for individuals, entrepreneurs, professionals and teams.</p>
+              </div>
+              <div className="flex flex-col gap-4 lg:items-end"><button onClick={() => navigateTo('/academy')} className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-xs font-black uppercase tracking-widest text-slate-950 transition-all hover:bg-cyan-400">Explore Academy <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></button><p className="text-center text-[10px] font-black uppercase tracking-[0.25em] text-slate-500 lg:text-right">Skills. Careers. Business. Growth.</p></div>
             </div>
           </div>
 

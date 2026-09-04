@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import BrandingMarketing from './pages/BrandingMarketing';
 import TechDevelopment from './pages/TechDevelopment';
 import LegalBusiness from './pages/LegalBusiness';
+import Academy from './pages/Academy';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Management from './pages/Management';
@@ -56,6 +57,8 @@ const AppContent = () => {
         return <TechDevelopment />;
       case '/legal-business':
         return <LegalBusiness />;
+      case '/academy':
+        return <Academy />;
       default:
         return <Home />;
     }
