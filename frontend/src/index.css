@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -50,5 +50,12 @@
 
   .human-image:hover {
     transform: scale(1.03);
+  }
+
+  .academy-display {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    text-transform: none;
   }
 }
