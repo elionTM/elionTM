@@ -161,13 +161,13 @@ const Home = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
-                Next-Gen Agency
+                A thoughtful partner for ambitious work
               </div>
               <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.9] tracking-tighter uppercase">
-                Build the <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">Future</span>
+                Make the next move <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">clearer.</span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto font-medium">
-                Elion Tech combines high-performance engineering with disruptive creative strategy to scale global ventures.
+                We bring strategy, craft and technology together for people building something that matters.
               </p>
             </motion.div>
 
@@ -180,8 +180,8 @@ const Home = () => {
               {/* Visual Anchor Image */}
               <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,212,255,0.15)] group">
                 <img 
-                  src="https://picsum.photos/seed/eliontech/1600/900" 
-                  alt="High-Tech Solution" 
+                  src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85" 
+                  alt="A bright creative studio where ideas become work" 
                   className="w-full object-cover aspect-[21/9] transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
@@ -222,7 +222,7 @@ const Home = () => {
                   onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-10 py-5 bg-white/5 backdrop-blur-md text-white border border-white/10 rounded-2xl font-black text-xs tracking-widest uppercase hover:bg-white hover:text-slate-950 transition-all shadow-sm"
                 >
-                  View Services
+                  See how we help
                 </button>
               </div>
             </motion.div>
@@ -389,7 +389,7 @@ const Home = () => {
                   >
                     <div className="relative h-80 overflow-hidden">
                       <img 
-                        src={item.images?.[0] || 'https://picsum.photos/seed/placeholder/800/600'} 
+                        src={item.images?.[0] || 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85'} 
                         alt={item.title} 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         referrerPolicy="no-referrer"

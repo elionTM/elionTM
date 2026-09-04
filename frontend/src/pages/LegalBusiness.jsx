@@ -77,22 +77,22 @@ const LegalBusiness = () => {
               className="space-y-8"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em]">
-                Regulatory Experts
+                The details that let you move with confidence
               </div>
               <h1 className="text-6xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter uppercase">
-                Secure your <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">foundation</span>
+                Make the important parts <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">solid.</span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-xl font-medium">
-                We provide the high-integrity framework necessary for global ventures to navigate complex markets with total confidence.
+                We help you make sense of the rules, decisions and structures behind a business so you can focus on the work in front of you.
               </p>
             </motion.div>
             <div className="relative group">
               <div className="absolute -inset-4 bg-cyan-500/20 rounded-[3rem] blur-3xl opacity-50" />
               <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img 
-                  src="https://picsum.photos/seed/legal/1200/800" 
-                  alt="Legal Solutions" 
-                  className="w-full object-cover aspect-video transition-transform duration-1000 group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=85" 
+                  alt="A thoughtful workspace with documents and a laptop" 
+                  className="human-image w-full object-cover aspect-video"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
@@ -102,9 +102,9 @@ const LegalBusiness = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {loading ? (
-              <div className="col-span-3 text-center py-12 text-slate-500">Loading services...</div>
+              <div className="col-span-3 text-center py-12 text-slate-400">Gathering the details that can give you peace of mind...</div>
             ) : services.length === 0 ? (
-              <div className="col-span-3 text-center py-12 text-slate-500">No services found in this category.</div>
+              <div className="col-span-3 text-center py-12 text-slate-400">We’re shaping this part of the studio. Check back soon.</div>
             ) : (
               services.map((service, index) => (
                 <motion.div
@@ -127,7 +127,7 @@ const LegalBusiness = () => {
                     onClick={() => handleRequest(service)}
                     className="w-full py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-white hover:text-slate-950 transition-all flex items-center justify-center gap-3 group"
                   >
-                    DEPLOY PROTOCOL <Rocket className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    Let’s talk it through <Rocket className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </motion.div>
               ))

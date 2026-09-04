@@ -84,21 +84,21 @@ const RequestModal = ({ isOpen, onClose, service }) => {
                   <Rocket className="w-8 h-8 text-blue-600" />
                 </div>
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold text-slate-900">Login Required</h2>
-                  <p className="text-slate-500">Please login or create an account to request this service.</p>
+                  <h2 className="text-2xl font-bold text-slate-900">Let’s get to know the project</h2>
+                  <p className="text-slate-500">Sign in first, then tell us what you’re trying to make better.</p>
                 </div>
                 <div className="flex flex-col gap-3">
                   <button 
                     onClick={() => navigateTo('/login')}
                     className="w-full py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
                   >
-                    <LogIn className="w-5 h-5" /> Login to Continue
+                    <LogIn className="w-5 h-5" /> I already have an account
                   </button>
                   <button 
                     onClick={() => navigateTo('/signup')}
                     className="w-full py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                   >
-                    <UserPlus className="w-5 h-5" /> Create New Account
+                    <UserPlus className="w-5 h-5" /> I’m new to Elion
                   </button>
                 </div>
               </div>
@@ -108,21 +108,21 @@ const RequestModal = ({ isOpen, onClose, service }) => {
                   <Send className="w-8 h-8 text-emerald-600" />
                 </div>
                 <div className="space-y-2">
-                  <h2 className="text-2xl font-bold text-slate-900">Request Sent!</h2>
-                  <p className="text-slate-500">We've received your request for <strong>{service.name}</strong>. Our team will get back to you shortly.</p>
+                  <h2 className="text-2xl font-bold text-slate-900">We’ve got it</h2>
+                  <p className="text-slate-500">Your note about <strong>{service.name}</strong> is with our team. We’ll be in touch shortly.</p>
                 </div>
-                <p className="text-xs text-slate-400">Closing in 3 seconds...</p>
+                <p className="text-xs text-slate-400">This window will close in a moment.</p>
               </div>
             ) : (
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-900">Request Service</h2>
-                  <p className="text-slate-500 text-sm">You're requesting: <span className="font-bold text-slate-900">{service.name}</span></p>
+                  <h2 className="text-2xl font-bold text-slate-900">Tell us what you’re imagining</h2>
+                  <p className="text-slate-500 text-sm">A few details about <span className="font-bold text-slate-900">{service.name}</span> will help us prepare.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Phone Number</label>
+                    <label className="text-sm font-bold text-slate-700">Best number to reach you</label>
                     <input 
                       type="tel"
                       required
@@ -134,12 +134,12 @@ const RequestModal = ({ isOpen, onClose, service }) => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 uppercase tracking-wider">Project Details</label>
+                    <label className="text-sm font-bold text-slate-700">What would you like to change?</label>
                     <textarea 
                       required
                       value={formData.details}
                       onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                      placeholder="Tell us about your project requirements..."
+                      placeholder="Tell us where you are today, what you’re hoping to achieve, and what feels stuck."
                       className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all min-h-[150px] resize-none"
                     />
                   </div>
@@ -149,9 +149,9 @@ const RequestModal = ({ isOpen, onClose, service }) => {
                     disabled={submitting}
                     className="w-full py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {submitting ? 'Sending...' : (
+                    {submitting ? 'Passing this to the team...' : (
                       <>
-                        <Send className="w-5 h-5" /> Send Request
+                        <Send className="w-5 h-5" /> Send us a note
                       </>
                     )}
                   </button>

@@ -77,22 +77,22 @@ const TechDevelopment = () => {
               className="space-y-8"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em]">
-                High-Performance Engineering
+                Built for the way your team actually works
               </div>
               <h1 className="text-6xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter uppercase">
-                Build the <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">future</span>
+                Make your next product <span className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600">work.</span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-xl font-medium">
-                We engineer disruptive technology architectures that enable enterprise-grade scalability and unmatched security.
+                From a first prototype to the systems behind a growing business, we make technology feel useful, calm and dependable.
               </p>
             </motion.div>
             <div className="relative group">
               <div className="absolute -inset-4 bg-blue-500/20 rounded-[3rem] blur-3xl opacity-50" />
               <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img 
-                  src="https://picsum.photos/seed/tech-solutions/1200/800" 
-                  alt="Tech Solutions" 
-                  className="w-full object-cover aspect-video transition-transform duration-1000 group-hover:scale-105"
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=85" 
+                  alt="A product team collaborating around a laptop" 
+                  className="human-image w-full object-cover aspect-video"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
@@ -102,9 +102,9 @@ const TechDevelopment = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {loading ? (
-              <div className="col-span-3 text-center py-12 text-slate-500">Loading services...</div>
+              <div className="col-span-3 text-center py-12 text-slate-400">Looking through the ways we can make this work better...</div>
             ) : services.length === 0 ? (
-              <div className="col-span-3 text-center py-12 text-slate-500">No services found in this category.</div>
+              <div className="col-span-3 text-center py-12 text-slate-400">We’re shaping this part of the studio. Check back soon.</div>
             ) : (
               services.map((service, index) => (
                 <motion.div
@@ -127,7 +127,7 @@ const TechDevelopment = () => {
                     onClick={() => handleRequest(service)}
                     className="w-full py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-[10px] tracking-widest uppercase hover:bg-white hover:text-slate-950 transition-all flex items-center justify-center gap-3 group"
                   >
-                    INITIALIZE BUILD <Rocket className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    Talk through your idea <Rocket className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </motion.div>
               ))

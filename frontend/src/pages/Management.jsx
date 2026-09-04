@@ -410,7 +410,7 @@ const Management = () => {
                             value={url}
                             onChange={e => updateImageField(idx, e.target.value)}
                             className="flex-1 px-4 py-2 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600/20 outline-none"
-                            placeholder="https://picsum.photos/seed/project/800/600"
+                            placeholder="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85"
                             required
                           />
                           <button 
@@ -466,7 +466,7 @@ const Management = () => {
                 <div key={item._id} className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all overflow-hidden group">
                   <div className="relative h-48 overflow-hidden">
                     <img 
-                      src={item.images?.[0] || 'https://picsum.photos/seed/placeholder/800/600'} 
+                      src={item.images?.[0] || 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=85'}
                       alt={item.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
