@@ -19,7 +19,7 @@ const AcademyCourse = ({ slug }) => {
   }
 
   return (
-    <div className="public-depth min-h-screen overflow-x-hidden bg-[#f5f0e8] font-sans text-[#183b32]">
+    <div className="academy-page public-depth min-h-screen overflow-x-hidden bg-[#020617] font-sans text-white">
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-[#183b32]/10 bg-[#f5f0e8]/85 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <button onClick={() => navigateTo('/academy')} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-[#183b32]/65 transition-colors hover:text-[#d16f43]"><ArrowLeft className="h-4 w-4" /> Back to Academy</button>
