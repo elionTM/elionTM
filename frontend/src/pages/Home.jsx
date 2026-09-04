@@ -178,7 +178,7 @@ const Home = () => {
               className="relative w-full max-w-5xl"
             >
               {/* Visual Anchor Image */}
-              <div className="relative z-10 rounded-[3rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,212,255,0.15)] group">
+              <div className="image-stage relative z-10 rounded-[3rem] border border-white/10 group">
                 <img 
                   src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=85" 
                   alt="A bright creative studio where ideas become work" 
@@ -258,7 +258,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="reveal-stagger grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {categories.map((category, index) => (
                 <motion.div
                   key={category.id}
@@ -375,7 +375,7 @@ const Home = () => {
                 <p className="text-slate-500 font-bold tracking-widest uppercase text-xs">No deployments found matching criteria.</p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="reveal-stagger grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {filteredPortfolio.map((item, index) => (
                   <motion.div
                     key={item._id}

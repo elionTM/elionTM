@@ -152,6 +152,11 @@ const Dashboard = () => {
       </nav>
 
       <div className="p-8 max-w-7xl mx-auto">
+        <div className="image-stage mb-10 min-h-[220px] rounded-[2rem] border border-white/10">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85" alt="A team shaping ideas together" className="absolute inset-0 h-full w-full object-cover opacity-55" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#061413] via-[#061413]/75 to-transparent" />
+          <div className="relative z-10 max-w-xl p-8 md:p-10"><p className="eyebrow text-cyan-300">Your Elion workspace</p><h1 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">A clear place for the work to move.</h1><p className="mt-3 max-w-md text-sm leading-relaxed text-slate-300">Keep an eye on the active pieces, share context, and see what is ready for its next step.</p></div>
+        </div>
         {activeTab === 'overview' ? (
           <>
             <div className="flex items-center justify-between mb-8">

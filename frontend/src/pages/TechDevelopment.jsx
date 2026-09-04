@@ -86,7 +86,7 @@ const TechDevelopment = () => {
                 From a first prototype to the systems behind a growing business, we make technology feel useful, calm and dependable.
               </p>
             </motion.div>
-            <div className="relative group">
+            <div className="image-stage relative group">
               <div className="absolute -inset-4 bg-blue-500/20 rounded-[3rem] blur-3xl opacity-50" />
               <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img 

@@ -79,7 +79,7 @@ const BrandingMarketing = () => {
                 We find the honest idea at the heart of your business, then turn it into a brand people can recognise, trust and choose.
               </p>
             </motion.div>
-            <div className="relative">
+            <div className="image-stage relative">
               <img 
                 src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85" 
                 alt="A designer arranging printed brand materials on a desk" 

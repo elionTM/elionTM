@@ -262,6 +262,68 @@
     background: linear-gradient(120deg, rgba(142, 232, 210, 0.05), transparent 35%, rgba(255, 155, 120, 0.04));
   }
 
+  .public-depth::after,
+  .workspace-shell::after {
+    content: "";
+    position: fixed;
+    top: 12%;
+    right: -8rem;
+    z-index: -1;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 999px;
+    background: rgba(142, 232, 210, 0.08);
+    filter: blur(70px);
+    pointer-events: none;
+    animation: ambient-drift 14s ease-in-out infinite alternate;
+  }
+
+  .image-stage {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transform: perspective(1100px) rotateX(1deg) rotateY(-2deg);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 700ms ease;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+  }
+
+  .image-stage:hover {
+    transform: perspective(1100px) rotateX(0deg) rotateY(0deg) translateY(-8px);
+    box-shadow: 0 40px 110px rgba(0, 0, 0, 0.42);
+  }
+
+  .image-stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.18), transparent 28%, transparent 70%, rgba(142, 232, 210, 0.08));
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .image-stage img {
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), filter 700ms ease;
+  }
+
+  .image-stage:hover img {
+    transform: scale(1.07);
+    filter: saturate(1.12) contrast(1.04);
+  }
+
+  .image-ribbon {
+    animation: ribbon-float 6s ease-in-out infinite;
+  }
+
+  .reveal-stagger > * {
+    animation: content-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .reveal-stagger > *:nth-child(2) { animation-delay: 80ms; }
+  .reveal-stagger > *:nth-child(3) { animation-delay: 160ms; }
+  .reveal-stagger > *:nth-child(4) { animation-delay: 240ms; }
+  .reveal-stagger > *:nth-child(5) { animation-delay: 320ms; }
+
   .academy-page {
     background: #020617 !important;
     color: #ffffff !important;
@@ -320,6 +382,21 @@
 @keyframes page-arrive {
   from { opacity: 0; transform: translateY(14px) scale(0.992); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes ambient-drift {
+  from { transform: translate3d(0, 0, 0) scale(0.9); }
+  to { transform: translate3d(-8rem, 10rem, 0) scale(1.18); }
+}
+
+@keyframes ribbon-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes content-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

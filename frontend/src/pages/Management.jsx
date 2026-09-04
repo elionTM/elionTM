@@ -263,6 +263,12 @@ const Management = () => {
           </div>
         </div>
 
+        <div className="image-stage reveal-stagger mb-8 min-h-[180px] rounded-[2rem] border border-white/10">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=85" alt="A team reviewing work together" className="absolute inset-0 h-full w-full object-cover opacity-35" referrerPolicy="no-referrer" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#061413] via-[#061413]/85 to-transparent" />
+          <div className="relative z-10 p-8"><p className="eyebrow text-cyan-300">Studio control room</p><h2 className="mt-2 text-3xl font-black tracking-tight">Keep the important work visible.</h2></div>
+        </div>
+
         {activeTab === 'services' ? (
           <div className="space-y-6">
             <div className="flex justify-between items-center">

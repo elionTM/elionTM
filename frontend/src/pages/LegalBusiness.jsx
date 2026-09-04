@@ -86,7 +86,7 @@ const LegalBusiness = () => {
                 We help you make sense of the rules, decisions and structures behind a business so you can focus on the work in front of you.
               </p>
             </motion.div>
-            <div className="relative group">
+            <div className="image-stage relative group">
               <div className="absolute -inset-4 bg-cyan-500/20 rounded-[3rem] blur-3xl opacity-50" />
               <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
                 <img 
